@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>欢迎来到Question</title>
+        <script type="text/javascript" src="canvas-particle.js"></script>
+        <style text="type/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .index-main {
+                height: 600px;
+                width: 400px;
+                /*background-color: pink;*/
+                margin: 0 auto;
+                position: relative;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            .index-header {
+                text-align: center;
+                position: relative;
+            }
+            .index-image {
+                position: absolute;
+                top: 50px;
+                left: 175px;
+
+            }
+            .index-text {
+                position: absolute;
+                top: 88px;
+                left: 65px;
+                color: #555;
+                margin: 30px 0 20px;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 1;
+                font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+            }
+            .index-area {
+                position: absolute;
+                top: 156px;
+                left:50px;
+
+            }
+            .input-wrapper{
+                  
+                    border-radius: 3px;
+                    padding: 10px;
+                    font-size: 14px;
+
+            }
+            input{
+                height: 30px;
+                width: 270px;
+                border: 1px solid #d5d5d5;
+                padding: 5px;
+                font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+            }
+            .index-sign {
+                position: absolute;
+                top:278px;
+                left: 50px;
+            }
+            .index-sign .signup{
+                font-size: 16px;
+                width: 100px;
+                height: 36px;
+                background-color: rgb(0,189,155);
+                color: white;
+                border: 1px solid rgb(0,189,155);
+                border-radius: 3px;
+                margin: 10px;
+                font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+            }
+            .index-sign .signin{
+                font-size: 16px;
+                width: 100px;
+                height: 36px;
+                background-color: rgb(0,189,155);
+                color: white;
+                border: 1px solid rgb(0,189,155);
+                border-radius: 3px;
+                margin-left: 68px;
+                font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+            }
+            .check {
+                position: absolute;
+                top: 332px;
+                left: 74px;
+                text-decoration: none;
+                font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+                font-size: 14px;
+            }
+            .check input{
+                width: 14px;
+                height: 14px;
+                
+            }
+            .check .not-sign a{
+                text-decoration: none;
+                font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+                font-size: 14px;
+                margin-left: 130px;
+                color: black;
+                }
+        </style>
+    </head>
+    <body>
+        <div class="index-main">
+                <div class="index-header">
+                    <h2 class="index-image"><img src="images/nk.png"></h2>
+                    <h3 class="index-text">与世界分享你的知识、经验和见解</h3>
+                </div>
+                <div class="index-area">
+                    <div class="name input-wrapper">
+                            <input type="text" name="fullname" aria-label ="用户名" placeholder="用户名：">
+                    </div>
+                    
+                    <div class="input-wrapper">
+                        <input class="password1" required="" type="password" name="password1" aria-label="密码" placeholder="密码：" autocomplete="off">
+                    </div>
+                    
+                </div> 
+                <div class="index-sign">
+                        <button class="signup"><a href="index.html">注册</a></button>
+                        <button class="signin"><a href="index2.html">登录</a></button>
+                </div> 
+                <div class="check">
+                    <input type="checkbox" name="remember" checked="checked">记住我
+                    <span class="not-sign"><a href="#">无法登陆</a>?</span>
+                </div>
+        </div>
+
+    </body>
+</html>
+    <script type="text/javascript">
+        window.onload = function(){
+            var config = {
+                vx: 4,
+                vy:  4,
+                height: 2,
+                width: 2,
+                count: 100,
+                color: "121, 162, 185",
+                stroke: "100,200,180",
+                dist: 6000,
+                e_dist: 20000,
+                max_conn: 10
+            }
+            CanvasParticle(config);
+        }
+    </script>
+    <script type="text/javascript" src="canvas-particle.js"></script>
+    <script type="text/javascript">
+        var log = function() {
+            console.log.apply(console, arguments)
+        }
+
+        var e = function(selector) {
+            return document.querySelector(selector)
+        }
+        var password1 = e(".password1")
+        var password2 = e(".password2")
+        var signup = e(".signup")
+        var istrue = function() {
+            if (password1.value === password2.value){
+                password1.value = password2.value
+                
+            } else if (password1.value !== password2.value) {
+                alert("两次密码不一样")
+                password1.value = ""
+                password2.value = ""
+                }
+        istrue()
+    </script>
